@@ -36,7 +36,6 @@ class ApartmentTest < Minitest::Test
   end
 
   def test_unit_can_add_renter
-    #This test is failing. Come back to it 
     renter1 = Renter.new("Jessie")
     @unit1.add_renter(renter1)
     assert_equal renter1, @unit1.renter
