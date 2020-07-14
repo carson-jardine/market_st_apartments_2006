@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/apartment'
-require '.lib/renter'
+require './lib/renter'
 require 'pry'
 
 class ApartmentTest < Minitest::Test
@@ -31,12 +31,16 @@ class ApartmentTest < Minitest::Test
     assert_equal 1, @unit1.bedrooms
   end
 
-# pry(main)> unit1.renter
-# # => nil
-#
-# pry(main)> unit1.add_renter(renter1)
-#
-# pry(main)> unit1.renter
-# # => #<Renter:0x00007fb3ee106ce8...>
+  def test_unit_has_no_renter_by_default
+    assert_nil @unit1.renter
+  end
+
+  def test_unit_can_add_renter
+    #This test is failing. Come back to it 
+    renter1 = Renter.new("Jessie")
+    @unit1.add_renter(renter1)
+    assert_equal renter1, @unit1.renter
+  end
+
 
 end
